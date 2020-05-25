@@ -1,0 +1,65 @@
+﻿@model webapptest.Models.Regist
+
+@{
+    ViewData["Title"] = "Regist";
+
+    List<SelectListItem> listY = new List<SelectListItem>();
+    List<SelectListItem> listM = new List<SelectListItem>();
+    List<SelectListItem> listD = new List<SelectListItem>();
+    int ix;
+    for (ix = 1949; ix < 2020; ix++)
+    {
+        listY.Add(new SelectListItem { Value = (ix + 1).ToString(), Text = (ix + 1).ToString() });
+    }
+    for (ix = 0; ix < 12; ix++)
+    {
+        listM.Add(new SelectListItem { Value = (ix + 1).ToString(), Text = (ix + 1).ToString() });
+    }
+    for (ix = 0; ix < 31; ix++)
+    {
+        listD.Add(new SelectListItem { Value = (ix + 1).ToString(), Text = (ix + 1).ToString() });
+    }
+}
+
+<h1>Regist</h1>
+<form method="post" asp-controller="Regist" asp-action="DoRegist">
+    <div class="form-group">
+        <label for="Input-Name">Name</label>
+        <span asp-validation-for="Name" class="text-danger"></span>
+        <br>
+        <input type="text" name="name">
+    </div>
+    <div class="form-group">
+        <label for="Input-Gender">Gender</label>
+        Male
+        <input type="radio" name="gender" value="1">
+        Female
+        <input type="radio" name="gender" value="0">
+        <span asp-validation-for="Gender" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Input-Birth">Birth</label>
+        <br>
+        <select name="year" asp-items="@listY"></select><select name="month" asp-items="@listM"></select><select name="day" asp-items="@listD"></select>
+        <span asp-validation-for="Birth" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Input-Tell">Tell</label>
+        <br>
+        <input type="text" name="tell">
+        <span asp-validation-for="Tell" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Input-Mail">Mail</label>
+        <br>
+        <input type="text" name="mail">
+
+        <span asp-validation-for="Mail" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="sub">
+    </div>
+</form>
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

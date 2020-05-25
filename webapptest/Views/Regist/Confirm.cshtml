@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Confirm";
+    Regist rg = (Regist)ViewData["regist"];
+}
+
+<h1>Confirm</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Birth</th>
+            <th>Birth_kj</th>
+            <th>Tell</th>
+            <th>Mail</th>
+            <th>CreateDate</th>
+            <th>UpdateDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>@rg.Name</th>
+            <th>@rg.Gender</th>
+            <th>@rg.Birth</th>
+            <th>@rg.Birth_kj</th>
+            <th>@rg.Tell</th>
+            <th>@rg.Mail</th>
+            <th>@rg.CreateDate</th>
+            <th>@rg.UpdateDate</th>
+        </tr>
+    </tbody>
+</table>
+<a asp-controller="Table" ?id="1" asp-action="Index">sub</a>

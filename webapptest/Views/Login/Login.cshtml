@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    MsgClass mc = (MsgClass)ViewData["msg"];
+}
+
+<h1>Login</h1>
+<form method="post" asp-controller="Login" asp-action="Check">
+    <label for="Input-Id">Id</label><br>
+    <input type="text" name="id"><br>
+    <label for="Input-Pass">Pass</label><br>
+    <input type="password" name="pass"><br>
+    <input type="submit" value="sub">
+</form>
+@if (mc != null)
+{
+    <p>   @mc.Msg</p>
+}
+
+
